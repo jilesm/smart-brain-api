@@ -4,6 +4,8 @@ const cors = require('cors');
 const app = express();
 const knex = require('knex')
 
+
+const config = require('./config');
 const register = require('./controllers/register')
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
@@ -14,8 +16,8 @@ const db = knex({
     connection: {
       host : '127.0.0.1',
       user : 'postgres',
-      password : 'markkiller23',
-      database : 'smartbrain'
+      password : config.pass,
+      database : config.database
     }
   });
 
